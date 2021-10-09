@@ -645,9 +645,9 @@ func validateNodeIP(nodeIP net.IP) error {
 	if nodeIP.To4() == nil && nodeIP.To16() == nil {
 		return fmt.Errorf("nodeIP must be a valid IP address")
 	}
-	if nodeIP.IsLoopback() {
-		return fmt.Errorf("nodeIP can't be loopback address")
-	}
+	//if nodeIP.IsLoopback() {
+	//	return fmt.Errorf("nodeIP can't be loopback address")
+	//}
 	if nodeIP.IsMulticast() {
 		return fmt.Errorf("nodeIP can't be a multicast address")
 	}

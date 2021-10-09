@@ -53,7 +53,7 @@ func GetInterfaceIP4Addr(iface *net.Interface) (net.IP, error) {
 	}
 
 	// prefer non link-local addr
-	var ll net.IP
+	var ll, lo net.IP
 
 	for _, addr := range addrs {
 		if addr.IP.To4() == nil {
@@ -67,11 +67,19 @@ func GetInterfaceIP4Addr(iface *net.Interface) (net.IP, error) {
 		if addr.IP.IsLinkLocalUnicast() {
 			ll = addr.IP
 		}
+
+		if addr.IP.IsLoopback() {
+			lo = addr.IP
+		}
 	}
 
 	if ll != nil {
 		// didn't find global but found link-local. it'll do.
 		return ll, nil
+	}
+
+	if lo != nil {
+		return lo, nil
 	}
 
 	return nil, errors.New("No IPv4 address found for given interface")
