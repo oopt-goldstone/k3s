@@ -111,7 +111,7 @@ spec:
         beta.kubernetes.io/os: linux
       containers:
       - name: coredns
-        image: %{SYSTEM_DEFAULT_REGISTRY}%microsonic/coredns:latest
+        image: ghcr.io/oopt-goldstone/coredns:main
         imagePullPolicy: IfNotPresent
         resources:
           limits:

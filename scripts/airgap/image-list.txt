@@ -1,7 +1,7 @@
 docker.io/rancher/klipper-helm:v0.6.5-build20210915
 docker.io/rancher/klipper-lb:v0.2.0
 docker.io/rancher/local-path-provisioner:v0.0.20
-docker.io/microsonic/coredns:latest
+ghcr.io/oopt-goldstone/coredns:main
 docker.io/rancher/mirrored-library-busybox:1.32.1
 docker.io/rancher/mirrored-library-traefik:2.5.0
 docker.io/rancher/mirrored-metrics-server:v0.5.0
